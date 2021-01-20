@@ -40,6 +40,10 @@ final class MakeStratusPage extends AbstractMaker
 
     public function generate(InputInterface $input, ConsoleStyle $io, Generator $generator)
     {
+        /**
+         * generate the page class.
+         */
+
         $pageClassNameDetails = $generator->createClassNameDetails(
             $input->getArgument('page-name'),
             'StratusPage\\',
@@ -52,6 +56,26 @@ final class MakeStratusPage extends AbstractMaker
             [
                 'class_name' => $pageClassNameDetails->getShortName(),
                 'template_path' => 'my-template.html.twig',
+            ]
+        );
+
+        /**
+         * generate the controller class.
+         */
+
+        $controllerClassNameDetails = $generator->createClassNameDetails(
+            $input->getArgument('page-name'),
+            'Controller\\StratusPage\\',
+            'StratusPageController'
+        );
+
+        $generator->generateClass(
+            $controllerClassNameDetails->getFullName(),
+            __DIR__.'/../Resources/skeleton/StratusPageController.tpl.php',
+            [
+                'class_name' => $controllerClassNameDetails->getShortName(),
+                'page_class_name' => $pageClassNameDetails->getShortName(),
+                'page_name' => $input->getArgument('page-name'),
             ]
         );
 
