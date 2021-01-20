@@ -1,0 +1,13 @@
+{
+    "name": "thenlabs/stratus-bundle",
+    "description": "StratusPHP integration for Symfony.",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andy Daniel Navarro Taño",
+            "email": "andaniel05@gmail.com"
+        }
+    ],
+    "require": {}
+}
