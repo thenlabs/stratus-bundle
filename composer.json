@@ -9,5 +9,11 @@
             "email": "andaniel05@gmail.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "thenlabs/pyramidal-tests": "^1.1",
+        "symfony/maker-bundle": "^1.28"
+    },
+    "require": {
+        "thenlabs/stratus-php": "1.0.x-dev"
+    }
 }
