@@ -14,5 +14,15 @@
     },
     "require": {
         "thenlabs/stratus-php": "1.0.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "ThenLabs\\Bundle\\StratusBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ThenLabs\\Bundle\\StratusBundle\\Tests\\": "tests/"
+        }
     }
 }
