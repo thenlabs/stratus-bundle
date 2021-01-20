@@ -1,4 +1,4 @@
 services:
-    make_stratus_page_command:
+    stratus.command.make_stratus_page:
         class: ThenLabs\Bundle\StratusBundle\Maker\MakeStratusPage
         tags: [maker.command]
