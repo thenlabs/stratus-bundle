@@ -40,6 +40,25 @@ final class MakeStratusPage extends AbstractMaker
 
     public function generate(InputInterface $input, ConsoleStyle $io, Generator $generator)
     {
+        $pageClassNameDetails = $generator->createClassNameDetails(
+            $input->getArgument('page-name'),
+            'StratusPage\\',
+            'StratusPage'
+        );
+
+        $generator->generateClass(
+            $pageClassNameDetails->getFullName(),
+            __DIR__.'/../Resources/skeleton/StratusPage.tpl.php',
+            [
+                'class_name' => $pageClassNameDetails->getShortName(),
+                'template_path' => 'my-template.html.twig',
+            ]
+        );
+
+        $generator->writeChanges();
+
+        $this->writeSuccessMessage($io);
+        $io->text('Next: Open your new page class and edit it!');
     }
 
     public function configureDependencies(DependencyBuilder $dependencies)
