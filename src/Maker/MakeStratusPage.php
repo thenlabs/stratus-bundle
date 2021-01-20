@@ -32,62 +32,17 @@ final class MakeStratusPage extends AbstractMaker
 
     public function configureCommand(Command $command, InputConfiguration $inputConf)
     {
-        // $command
-        //     ->addArgument('controller-class', InputArgument::OPTIONAL, sprintf('Choose a name for your controller class (e.g. <fg=yellow>%sController</>)', Str::asClassName(Str::getRandomTerm())))
-        //     ->addOption('no-template', null, InputOption::VALUE_NONE, 'Use this option to disable template generation')
-        //     ->setHelp(file_get_contents(__DIR__.'/../Resources/help/MakeController.txt'))
-        // ;
+        $command
+            ->addArgument('page-name', InputArgument::REQUIRED, 'Choose a name for your page')
+            ->setHelp(file_get_contents(__DIR__.'/../Resources/help/MakeStratusPage.txt'))
+        ;
     }
 
     public function generate(InputInterface $input, ConsoleStyle $io, Generator $generator)
     {
-        $controllerClassNameDetails = $generator->createClassNameDetails(
-            $input->getArgument('controller-class'),
-            'Controller\\',
-            'Controller'
-        );
-
-        $noTemplate = $input->getOption('no-template');
-        $templateName = Str::asFilePath($controllerClassNameDetails->getRelativeNameWithoutSuffix()).'/index.html.twig';
-        $controllerPath = $generator->generateController(
-            $controllerClassNameDetails->getFullName(),
-            'controller/Controller.tpl.php',
-            [
-                'route_path' => Str::asRoutePath($controllerClassNameDetails->getRelativeNameWithoutSuffix()),
-                'route_name' => Str::asRouteName($controllerClassNameDetails->getRelativeNameWithoutSuffix()),
-                'with_template' => $this->isTwigInstalled() && !$noTemplate,
-                'template_name' => $templateName,
-            ]
-        );
-
-        if ($this->isTwigInstalled() && !$noTemplate) {
-            $generator->generateTemplate(
-                $templateName,
-                'controller/twig_template.tpl.php',
-                [
-                    'controller_path' => $controllerPath,
-                    'root_directory' => $generator->getRootDirectory(),
-                    'class_name' => $controllerClassNameDetails->getShortName(),
-                ]
-            );
-        }
-
-        $generator->writeChanges();
-
-        $this->writeSuccessMessage($io);
-        $io->text('Next: Open your new controller class and add some pages!');
     }
 
     public function configureDependencies(DependencyBuilder $dependencies)
     {
-        $dependencies->addClassDependency(
-            Annotation::class,
-            'doctrine/annotations'
-        );
-    }
-
-    private function isTwigInstalled()
-    {
-        return class_exists(TwigBundle::class);
     }
 }
