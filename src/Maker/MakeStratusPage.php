@@ -51,7 +51,7 @@ final class MakeStratusPage extends AbstractMaker
             __DIR__.'/../Resources/skeleton/StratusPage.tpl.php',
             [
                 'class_name' => $pageClassNameDetails->getShortName(),
-                'template_path' => 'my-template.html.twig',
+                'template_path' => $input->getArgument('page-name').'-stratus-page.html.twig',
             ]
         );
 
