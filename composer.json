@@ -13,7 +13,8 @@
         "thenlabs/pyramidal-tests": "^1.1"
     },
     "require": {
-        "thenlabs/stratus-php": "1.0.x-dev"
+        "thenlabs/stratus-php": "1.0.x-dev",
+        "symfony/framework-bundle": "4.4.*"
     },
     "autoload": {
         "psr-4": {
