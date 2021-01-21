@@ -79,7 +79,8 @@ abstract class AbstractPage extends AbstractStratusPage
         $annotationReader = new AnnotationReader;
 
         $stratusPageAnnotation = $annotationReader->getClassAnnotation(
-            $class, Annotation\StratusPage::class
+            $class,
+            Annotation\StratusPage::class
         );
 
         return $this->twig->render($stratusPageAnnotation->template, $params);

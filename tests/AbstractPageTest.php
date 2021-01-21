@@ -4,7 +4,6 @@ namespace ThenLabs\Bundle\StratusBundle\Tests;
 
 use ThenLabs\Bundle\StratusBundle\Annotation\StratusPage;
 use ThenLabs\Bundle\StratusBundle\AbstractPage;
-use ThenLabs\ClassBuilder\ClassBuilder;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Twig\Environment;
 
