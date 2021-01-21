@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\StratusPage\<?= $page_class_name; ?>;
 use ThenLabs\StratusPHP\Request as StratusRequest;
 use function Opis\Closure\{serialize as s, unserialize as u};
+use Twig\Environment;
 
 /**
  * @Route("/<?= $page_name ?>", name="<?= $page_name ?>_")
@@ -20,8 +21,11 @@ class <?= $class_name ?> extends AbstractController
     /**
      * @Route("/", name="serve")
      */
-    public function serve(<?= $page_class_name; ?> $page, SessionInterface $session): Response
+    public function serve(<?= $page_class_name; ?> $page, SessionInterface $session, Environment $twig): Response
     {
+        $page->setController($this);
+        $page->setTwig($twig);
+
         $session->set('<?= $page_name ?>', s($page));
 
         return new Response($page->render());
@@ -34,6 +38,8 @@ class <?= $class_name ?> extends AbstractController
     {
         $response = new StreamedResponse(function () use ($request, $session) {
             $page = u($session->get('<?= $page_name ?>'));
+            $page->setController($this);
+
             $stratusRequest = StratusRequest::createFromJson(
                 $request->request->get('stratus_request')
             );
