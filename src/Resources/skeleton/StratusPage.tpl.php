@@ -11,5 +11,4 @@ use ThenLabs\StratusPHP\Plugin\SElements\SElementsTrait;
  */
 class <?= $class_name; ?> extends AbstractPage
 {
-    use SElementsTrait;
 }

@@ -5,6 +5,8 @@ namespace ThenLabs\Bundle\StratusBundle;
 
 use ThenLabs\StratusPHP\AbstractPage as AbstractStratusPage;
 use ThenLabs\StratusPHP\Annotation\Sleep;
+use ThenLabs\StratusPHP\Plugin\PageDom\PageDomTrait;
+use ThenLabs\StratusPHP\Plugin\SElements\SElementsTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Twig\Environment as TwigEnvironment;
 use Doctrine\Common\Annotations\AnnotationRegistry;
@@ -19,6 +21,9 @@ AnnotationRegistry::registerFile(__DIR__.'/Annotation/StratusPage.php');
  */
 abstract class AbstractPage extends AbstractStratusPage
 {
+    use PageDomTrait;
+    use SElementsTrait;
+
     /**
      * @var AbstractController
      *
@@ -35,7 +40,7 @@ abstract class AbstractPage extends AbstractStratusPage
 
     public function __construct()
     {
-        parent::__construct('');
+        parent::__construct('', false);
     }
 
     /**

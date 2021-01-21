@@ -19,12 +19,15 @@ use Twig\Environment;
 class <?= $class_name ?> extends AbstractController
 {
     /**
-     * @Route("/", name="serve")
+     * @Route("/", name="page")
      */
-    public function serve(<?= $page_class_name; ?> $page, SessionInterface $session, Environment $twig): Response
+    public function page(SessionInterface $session, Environment $twig): Response
     {
+        $page = new <?= $page_class_name; ?>;
         $page->setController($this);
+        $page->setAjaxControllerUri($this->generateUrl('<?= $page_name ?>_ajax'));
         $page->setTwig($twig);
+        $page->runPlugins();
 
         $session->set('<?= $page_name ?>', s($page));
 
