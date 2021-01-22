@@ -3217,12 +3217,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thenlabs/stratus-php.git",
-                "reference": "92f4a685ad3a17259386621bb75e79f45a8d7cea"
+                "reference": "6f56cb83b85ea3589e93bf7d130f9ff20746b8dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thenlabs/stratus-php/zipball/92f4a685ad3a17259386621bb75e79f45a8d7cea",
-                "reference": "92f4a685ad3a17259386621bb75e79f45a8d7cea",
+                "url": "https://api.github.com/repos/thenlabs/stratus-php/zipball/6f56cb83b85ea3589e93bf7d130f9ff20746b8dc",
+                "reference": "6f56cb83b85ea3589e93bf7d130f9ff20746b8dc",
                 "shasum": ""
             },
             "require": {
@@ -3258,7 +3258,7 @@
                 "issues": "https://github.com/thenlabs/stratus-php/issues",
                 "source": "https://github.com/thenlabs/stratus-php/tree/1.0"
             },
-            "time": "2021-01-19T16:25:50+00:00"
+            "time": "2021-01-21T20:10:39+00:00"
         },
         {
             "name": "twig/twig",
