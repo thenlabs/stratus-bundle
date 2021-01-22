@@ -1,4 +1,7 @@
 {
+    "psr/event-dispatcher": {
+        "version": "1.0.0"
+    },
     "symfony/flex": {
         "version": "1.0",
         "recipe": {
@@ -10,5 +13,14 @@
         "files": [
             ".env"
         ]
+    },
+    "symfony/polyfill-intl-grapheme": {
+        "version": "v1.22.0"
+    },
+    "symfony/polyfill-intl-normalizer": {
+        "version": "v1.22.0"
+    },
+    "symfony/string": {
+        "version": "v5.2.1"
     }
 }
