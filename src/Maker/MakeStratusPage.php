@@ -37,6 +37,15 @@ final class MakeStratusPage extends AbstractMaker
     public function generate(InputInterface $input, ConsoleStyle $io, Generator $generator)
     {
         /**
+         * generate the template.
+         */
+
+        $generator->generateTemplate(
+            $input->getArgument('page-name').'-stratus-page.html.twig',
+            __DIR__.'/../Resources/skeleton/StratusPageTemplate.tpl.php'
+        );
+
+        /**
          * generate the page class.
          */
 
