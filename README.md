@@ -76,6 +76,10 @@ class MainStratusPage extends AbstractPage
 }
 ```
 
+We want to highligh that `textContent` and `value` they are properties managed in real time on the browser. Theorically, it's possible manage any property type and react to any event.
+
+If you want to know all the StratusPHP posibilities, you can see the [examples](https://thenlabs.org/en/doc/stratus-php/master/examples/index.html) in his documentation.
+
 #### Testing results.
 
     $ symfony server:start
@@ -83,5 +87,40 @@ class MainStratusPage extends AbstractPage
 Now, if we access to the `http://localhost:8000/main/` we will obtains the next results.
 
 ![](2.gif)
+
+### Getting services inside page classes.
+
+```php
+<?php
+// src/StratusPage/MainStratusPage.php
+
+// ...
+
+/**
+ * @StratusPage(template="main-stratus-page.html.twig")
+ */
+class MainStratusPage extends AbstractPage
+{
+    public function clickOnTheButton(): void
+    {
+        // getting the doctrine service.
+        $doctrine = $this->controller->get('doctrine');
+
+        // ...
+    }
+}
+```
+
+## Pending features.
+
+1. Enable the support of autowiring services inside the page classes.
+
+## Known issues.
+
+One of the most representative features of StratusPHP is its ability to send messages by streaming to the browser as can be seen in [example 3](https://thenlabs.org/en/doc/stratus-php/master/examples/3/example.html). It is very important to keep in mind that this feature causes problems when it is being developed with the Symfony Local Web Server (`symfony server: start`). Instead, we recommend using PHP's internal server which you can run with the command `php -S localhost: 8000 -t public /`.
+
+## Contribute.
+
+[Contribute with ThenLabs.](https://thenlabs.org/en/contribute)
 
 [stratus-php-repo]: https://github.com/thenlabs/stratus-php
