@@ -1,7 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace ThenLabs\Bundle\StratusBundle;;
+namespace ThenLabs\Bundle\StratusBundle;
+
+;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use ReflectionClass;

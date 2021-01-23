@@ -84,8 +84,7 @@ testCase('AbstractPageTest.php', function () {
             ->willReturn($expectedUrl)
         ;
 
-        $page = new class($route, $parameters, $referenceType) extends AbstractPage
-        {
+        $page = new class($route, $parameters, $referenceType) extends AbstractPage {
             public function __construct($route, $parameters, $referenceType)
             {
                 $this->route = $route;
@@ -96,7 +95,9 @@ testCase('AbstractPageTest.php', function () {
             public function myMethod()
             {
                 return $this->controller->generateUrl(
-                    $this->route, $this->parameters, $this->referenceType
+                    $this->route,
+                    $this->parameters,
+                    $this->referenceType
                 );
             }
         };
