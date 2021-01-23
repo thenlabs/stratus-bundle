@@ -29,6 +29,13 @@ abstract class AbstractPage extends AbstractStratusPage
      *
      * @Sleep
      */
+    protected $controllerInstance;
+
+    /**
+     * @var ControllerProxy
+     *
+     * @Sleep
+     */
     protected $controller;
 
     /**
@@ -48,7 +55,7 @@ abstract class AbstractPage extends AbstractStratusPage
      */
     public function getController(): AbstractController
     {
-        return $this->controller;
+        return $this->controllerInstance;
     }
 
     /**
@@ -56,7 +63,8 @@ abstract class AbstractPage extends AbstractStratusPage
      */
     public function setController(AbstractController $controller): void
     {
-        $this->controller = $controller;
+        $this->controllerInstance = $controller;
+        $this->controller = new ControllerProxy($controller);
     }
 
     /**

@@ -56,18 +56,60 @@ testCase('AbstractPageTest.php', function () {
             ->willReturn($view)
         ;
 
-        $page = new MyDummyPage;
+        $page = new MyPage;
         $page->setTwig($twig);
 
         $result = $page->render($params);
 
         $this->assertEquals($view, $result);
     });
+
+    test(function () {
+        $expectedUrl = uniqid('url');
+        $route = uniqid('route');
+        $parameters = range(1, mt_rand(1, 10));
+        $referenceType = mt_rand(1, 10);
+
+        $controller = $this->getMockBuilder(AbstractController::class)
+            ->disableOriginalConstructor()
+            ->setMethods(['generateUrl'])
+            ->getMockForAbstractClass();
+        $controller->expects($this->once())
+            ->method('generateUrl')
+            ->with(
+                $this->equalTo($route),
+                $this->equalTo($parameters),
+                $this->equalTo($referenceType)
+            )
+            ->willReturn($expectedUrl)
+        ;
+
+        $page = new class($route, $parameters, $referenceType) extends AbstractPage
+        {
+            public function __construct($route, $parameters, $referenceType)
+            {
+                $this->route = $route;
+                $this->parameters = $parameters;
+                $this->referenceType = $referenceType;
+            }
+
+            public function myMethod()
+            {
+                return $this->controller->generateUrl(
+                    $this->route, $this->parameters, $this->referenceType
+                );
+            }
+        };
+
+        $page->setController($controller);
+
+        $this->assertEquals($expectedUrl, $page->myMethod());
+    });
 });
 
 /**
  * @StratusPage(template="path/to/template.html.twig")
  */
-class MyDummyPage extends AbstractPage
+class MyPage extends AbstractPage
 {
 }
