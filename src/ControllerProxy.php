@@ -16,6 +16,9 @@ class ControllerProxy
      */
     private $controller;
 
+    /**
+     * @param AbstractController $controller
+     */
     public function __construct(AbstractController $controller)
     {
         $this->controller = $controller;
@@ -33,5 +36,10 @@ class ControllerProxy
         $method->setAccessible(true);
 
         return $method->invokeArgs($this->controller, $arguments);
+    }
+
+    public function getInstance(): AbstractController
+    {
+        return $this->controller;
     }
 }

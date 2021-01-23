@@ -25,13 +25,6 @@ abstract class AbstractPage extends AbstractStratusPage
     use SElementsTrait;
 
     /**
-     * @var AbstractController
-     *
-     * @Sleep
-     */
-    protected $controllerInstance;
-
-    /**
      * @var ControllerProxy
      *
      * @Sleep
@@ -55,7 +48,7 @@ abstract class AbstractPage extends AbstractStratusPage
      */
     public function getController(): AbstractController
     {
-        return $this->controllerInstance;
+        return $this->controller->getInstance();
     }
 
     /**
@@ -63,7 +56,6 @@ abstract class AbstractPage extends AbstractStratusPage
      */
     public function setController(AbstractController $controller): void
     {
-        $this->controllerInstance = $controller;
         $this->controller = new ControllerProxy($controller);
     }
 
