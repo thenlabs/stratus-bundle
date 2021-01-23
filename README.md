@@ -121,6 +121,12 @@ One of the most representative features of StratusPHP is its ability to send mes
 
 ## Contribute.
 
-[Contribute with ThenLabs.](https://thenlabs.org/en/contribute)
+This project is developed from Cuba by independent programmers.
+
+Unfortunately for us, the cubans programmers we have seriously limitations for receive monetary donations for our open source projects and, in our case, ONLY we have the next alternatives:
+
+[Donation of 6 euros through Tropipay](https://www.tropipay.com/money-request/e22d2a00-5dd5-11eb-9924-13eacace0c71)
+
+Thank you very much!.
 
 [stratus-php-repo]: https://github.com/thenlabs/stratus-php
