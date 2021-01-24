@@ -126,6 +126,8 @@ This project is developed from Cuba by independent programmers.
 Unfortunately for us, the cubans programmers we have seriously limitations for receive monetary donations for our open source projects and, in our case, ONLY we have the next alternatives:
 
 [Donation of 6 euros through Tropipay](https://www.tropipay.com/money-request/e22d2a00-5dd5-11eb-9924-13eacace0c71)
+[Donation of 12 euros through Tropipay](https://www.tropipay.com/money-request/28ebb5a0-5dd7-11eb-9924-13eacace0c71)
+[Donation of 24 euros through Tropipay](https://www.tropipay.com/money-request/58a1e990-5dd7-11eb-9924-13eacace0c71)
 
 Thank you very much!.
 
