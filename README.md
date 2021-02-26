@@ -39,7 +39,7 @@ In the controller class you can fix the page route. By default will be like the 
 
 The template file is empty by default but you should edit it with the page view.
 
-In this example we will develop the [Example 2](https://github.com/thenlabs/stratus-php/blob/1.0/doc/examples/2/example.md) of the StratusPHP docs.
+In this example we will develop the [Example 2](https://thenlabs.org/es/doc/stratus-php/master/examples/2/example.html) of the StratusPHP docs.
 
 ```twig
 {# templates/main-stratus-page.html.twig #}
@@ -78,7 +78,7 @@ class MainStratusPage extends AbstractPage
 
 We want to highligh that `textContent` and `value` they are properties managed in real time on the browser. Theorically, it's possible manage any property type and react to any event.
 
-If you want to know all the StratusPHP posibilities, you can see the [examples](https://github.com/thenlabs/stratus-php/blob/1.0/doc/examples/index.md) in his documentation.
+If you want to know all the StratusPHP posibilities, you can see the [examples](https://thenlabs.org/es/doc/stratus-php/master/examples/index.html) in his documentation.
 
 #### Testing results.
 
@@ -117,7 +117,7 @@ class MainStratusPage extends AbstractPage
 
 ## Known issues.
 
-One of the most representative features of StratusPHP is its ability to send messages by streaming to the browser as can be seen in [example 3](https://github.com/thenlabs/stratus-php/blob/1.0/doc/examples/3/example.md). It is very important to keep in mind that this feature causes problems when it is being developed with the Symfony Local Web Server (`symfony server: start`). Instead, we recommend using PHP's internal server which you can run with the command `php -S localhost: 8000 -t public /`.
+One of the most representative features of StratusPHP is its ability to send messages by streaming to the browser as can be seen in [example 3](https://thenlabs.org/es/doc/stratus-php/master/examples/3/example.html). It is very important to keep in mind that this feature causes problems when it is being developed with the Symfony Local Web Server (`symfony server: start`). Instead, we recommend using PHP's internal server which you can run with the command `php -S localhost: 8000 -t public /`.
 
 ## Contribute.
 
