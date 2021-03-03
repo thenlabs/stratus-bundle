@@ -31,13 +31,6 @@ abstract class AbstractPage extends AbstractStratusPage
      */
     protected $controller;
 
-    /**
-     * @var Environment
-     *
-     * @Sleep
-     */
-    protected $twig;
-
     public function __construct()
     {
         parent::__construct('', false);
@@ -57,37 +50,5 @@ abstract class AbstractPage extends AbstractStratusPage
     public function setController(AbstractController $controller): void
     {
         $this->controller = new ControllerProxy($controller);
-    }
-
-    /**
-     * @return TwigEnvironment
-     */
-    public function getTwig(): TwigEnvironment
-    {
-        return $this->twig;
-    }
-
-    /**
-     * @param TwigEnvironment $twig
-     */
-    public function setTwig(TwigEnvironment $twig): void
-    {
-        $this->twig = $twig;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getView(array $params = []): string
-    {
-        $class = new ReflectionClass($this);
-        $annotationReader = new AnnotationReader;
-
-        $stratusPageAnnotation = $annotationReader->getClassAnnotation(
-            $class,
-            Annotation\StratusPage::class
-        );
-
-        return $this->twig->render($stratusPageAnnotation->template, $params);
     }
 }
