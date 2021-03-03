@@ -9,11 +9,7 @@ use ThenLabs\StratusPHP\Plugin\PageDom\PageDomTrait;
 use ThenLabs\StratusPHP\Plugin\SElements\SElementsTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Twig\Environment as TwigEnvironment;
-use Doctrine\Common\Annotations\AnnotationRegistry;
-use Doctrine\Common\Annotations\AnnotationReader;
 use ReflectionClass;
-
-AnnotationRegistry::registerFile(__DIR__.'/Annotation/StratusPage.php');
 
 /**
  * @author Andy Daniel Navarro Taño <andaniel05@gmail.com>

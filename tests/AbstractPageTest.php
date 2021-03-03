@@ -25,46 +25,6 @@ testCase('AbstractPageTest.php', function () {
     });
 
     test(function () {
-        $twig = $this->createMock(Environment::class);
-
-        $page = $this->getMockBuilder(AbstractPage::class)
-            ->disableOriginalConstructor()
-            ->getMockForAbstractClass()
-        ;
-
-        $page->setTwig($twig);
-
-        $this->assertSame($twig, $page->getTwig());
-    });
-
-    test(function () {
-        $params = range(1, mt_rand(1, 10));
-        $view = uniqid();
-
-        $twig = $this->getMockBuilder(Environment::class)
-            ->disableOriginalConstructor()
-            ->setMethods(['render'])
-            ->getMock()
-        ;
-
-        $twig->expects($this->once())
-            ->method('render')
-            ->with(
-                $this->equalTo('path/to/template.html.twig'),
-                $this->equalTo($params)
-            )
-            ->willReturn($view)
-        ;
-
-        $page = new MyPage;
-        $page->setTwig($twig);
-
-        $result = $page->render($params);
-
-        $this->assertEquals($view, $result);
-    });
-
-    test(function () {
         $expectedUrl = uniqid('url');
         $route = uniqid('route');
         $parameters = range(1, mt_rand(1, 10));
@@ -85,11 +45,17 @@ testCase('AbstractPageTest.php', function () {
         ;
 
         $page = new class($route, $parameters, $referenceType) extends AbstractPage {
+
             public function __construct($route, $parameters, $referenceType)
             {
                 $this->route = $route;
                 $this->parameters = $parameters;
                 $this->referenceType = $referenceType;
+            }
+
+            public function getView(): string
+            {
+                return '';
             }
 
             public function myMethod()
@@ -108,9 +74,10 @@ testCase('AbstractPageTest.php', function () {
     });
 });
 
-/**
- * @StratusPage(template="path/to/template.html.twig")
- */
 class MyPage extends AbstractPage
 {
+    public function getView(): string
+    {
+        return '';
+    }
 }
