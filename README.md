@@ -119,16 +119,4 @@ class MainStratusPage extends AbstractPage
 
 One of the most representative features of StratusPHP is its ability to send messages by streaming to the browser as can be seen in [example 3](https://thenlabs.org/es/doc/stratus-php/master/examples/3/example.html). It is very important to keep in mind that this feature causes problems when it is being developed with the Symfony Local Web Server (`symfony server: start`). Instead, we recommend using PHP's internal server which you can run with the command `php -S localhost: 8000 -t public /`.
 
-## Contribute.
-
-This project is developed from Cuba by independent programmers.
-
-Unfortunately for us, the cubans programmers we have seriously limitations for receive monetary donations for our open source projects and, in our case, ONLY we have the next alternatives:
-
-- [Donation of 6 euros through Tropipay](https://www.tropipay.com/money-request/e22d2a00-5dd5-11eb-9924-13eacace0c71)
-- [Donation of 12 euros through Tropipay](https://www.tropipay.com/money-request/28ebb5a0-5dd7-11eb-9924-13eacace0c71)
-- [Donation of 24 euros through Tropipay](https://www.tropipay.com/money-request/58a1e990-5dd7-11eb-9924-13eacace0c71)
-
-Thank you very much!.
-
 [stratus-php-repo]: https://github.com/thenlabs/stratus-php
